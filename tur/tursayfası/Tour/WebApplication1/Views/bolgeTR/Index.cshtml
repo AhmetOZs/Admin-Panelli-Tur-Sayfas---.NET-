@@ -1,0 +1,34 @@
+﻿@using WebApplication1.Models.sınıflar;
+@model List<bolgeTR>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/Adminlayout.cshtml";
+}
+
+<table class="table table-bordered" style="margin-top:20px">
+    <tr>
+        <th>Bolge Adı</th>
+        
+        
+        
+        
+
+    </tr>
+    @foreach (var k in Model)
+    {
+
+        <tr>
+            
+           
+            <td> @k.bolgeismi</td>
+     
+         
+            
+            <td><a href="/bolgeTR/bolgeSil/@k.bolgeID" class="btn btn-danger">Sil</a></td>
+        
+       
+        
+          </tr>
+    }
+</table>
+<a href="/bolgeTR/bolgeEkle" class="btn btn-info">Bölge Ekle</a>

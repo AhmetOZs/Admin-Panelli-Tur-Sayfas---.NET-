@@ -1,0 +1,278 @@
+﻿@using WebApplication1.Models.sınıflar
+@model List<TurlarRU>
+@{
+    ViewData["Title"] = "IndexEn";
+    Layout = "~/Views/Shared/rufooter.cshtml";
+    List<hakkimizdaRU> hakkimizdaens = ViewBag.hakkimdaen ?? new List<hakkimizdaRU>();
+    List<fotogaleri> fotogaleris = ViewBag.galeri ?? new List<fotogaleri>();
+    List<bolgeRU> bolges = ViewBag.bolge ?? new List<bolge>();
+    List<AnaGirisRU> giris = ViewBag.giris ?? new List<AnaGirisEN>();
+    List<Yorum> yorums = ViewBag.yorum ?? new List<Yorum>();
+    List<Ana> anas = ViewBag.ana ?? new List<Ana>();
+     List<TurTarihRU> turTarihs = ViewBag.tarih ?? new List<TurTarihRU>();
+}
+
+
+
+
+<div class="content-body">
+      <div class="tp-banner-container">
+        <div class="tp-banner-slider">
+          <ul>
+              @foreach (var a in giris)
+                {
+                    
+               
+            <li data-masterspeed="700" data-slotamount="7" data-transition="fade"><img src="@a.arkaplan"  data-bgposition="center" alt="" data-kenburns="on" data-duration="30000" data-ease="Linear.easeNone" data-scalestart="100" data-scaleend="120" data-rotatestart="0" data-rotateend="0" data-offsetstart="0 0" data-offsetend="0 0" data-bgparallax="10">
+              <div data-x="['center','center','center','center']" data-y="center" data-transform_in="x:-150px;opacity:0;s:1500;e:Power3.easeInOut;" data-transform_out="x:150px;opacity:0;s:1000;e:Power2.easeInOut;s:1000;e:Power2.easeInOut;" data-start="400" class="tp-caption sl-content">
+                <div class="sl-title-top">@a.üstsatır</div>
+                <div class="sl-title">@a.yer</div>
+                
+                <div class="sl-title-bot">@a.altsatır <span>@a.ucret</span></div>
+                
+              </div>
+            </li>
+             }
+          </ul>
+        </div>
+        <!-- search tours form-->
+       <div  class="search-tours-form">
+          <div  >
+            <div class="search-tours-wrap">
+              <div class="search-tours-tabs">
+                <div class="search-tabs-wrap">
+                  <div data-tours-cat="tab-cat-1" class="tours-tab-btn active"><span>
+Экскурсии</span><i style="padding:10px; color:#ffc107;"  class=" flaticon-suntour-world"></i></div>
+                  </div>
+              </div>
+              <form asp-controller="Anasayfa" asp-action="TurlarRu" method="post" class="search divider-skew">
+              <div class="search-tours-content">
+                <div data-tours-cat="tab-cat-1" class="tours-container active">
+                  <div class="tours-box">
+                    <div class="tours-search">
+                      <form method="post" class="form">
+                        <div style="width:200px;" class="search-wrap">
+                          <div class="selection-box"><i class="flaticon-suntour-map box-icon"></i>
+                        <select onchange="myFunction()" name="search" id="tarihfunc"><!--onchange ve id lazım -->
+                           
+                           @foreach (var a in bolges)
+                                                    {
+                                                            
+                                                       
+                                <option>@a.bolgeismi</option>
+                                                }
+                       </select>
+                        </div>
+                      </div>
+                      </form>
+                    
+                     <div style="width:200px;" class="search-wrap">
+                          <div class="selection-box"><i class="flaticon-suntour-calendar box-icon"></i>
+                       <select  name="date" id="date">
+                           
+                           @foreach (var a in turTarihs)
+                                                    {
+                                                            
+                                                       
+                                <option  >@a.tarih</option>
+                                                }
+                       </select>
+                        </div>
+                      </div>
+                      
+                      <div class="selection-box"><i class="flaticon-suntour-adult box-icon"></i>
+                        <select name="adults" id="adults">
+                          <option>
+Человек</option>
+                          <option>6</option>
+                          <option>12</option>
+                    
+                        </select>
+                      </div>
+                      <button style="background-color:#000000; width:50px; " type="submit" class="button-search">Поиск</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+            </div>
+          </div>
+        </div>
+        <!-- ! search tours form-->
+      </div>
+      <!-- page section-->
+      <section class="page-section pb-0">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-8">
+              <h6 class="title-section-top font-4">СПЕЦИАЛЬНЫЕ ПРЕДЛОЖЕНИЯ</h6>
+              <h2 class="title-section"><span>Популярные</span> туры</h2>
+              <div class="cws_divider mb-25 mt-5"></div>
+              <p>Nullam ac dolor id nulla finibus pharetra. Sed sed placerat mauris. Pellentesque lacinia imperdiet interdum. Ut nec nulla in purus consequat lobortis. Mauris lobortis a nibh sed convallis.</p>
+            </div>
+            <div class="col-md-4"><img src="~/pic/turlar/promo-1.png" data-at2x="~/pic/turlar/promo-1@2x.png" alt class="mt-md-0 mt-minus-70"></div>
+          </div>
+        </div>
+        <div class="features-tours-full-width">
+          <div class="features-tours-wrap clearfix">
+              @foreach (var a in Model.Take(12))
+                {
+                    
+               
+            <div class="features-tours-item">
+              <div class="features-media"><img style="width:511px;height: 350px" src="@a.girisresim" data-at2x="~/pic/tours/1.jpg" alt>
+                <div class="features-info-top">
+                  <div class="info-price font-4"><span>НА ЧЕЛОВЕКА</span> @a.ucret</div>
+                
+                  <p class="info-text"></p>
+                </div>
+                <div class="features-info-bot">
+                  <h4 class="title"><span class="font-4">@a.sehir</span> @a.turismi</h4><a href="@Url.Action("TurDetayRu","Anasayfa",new {id=a.turID})" class="button">ДЕТАЛИ</a>
+                </div>
+              </div>
+            </div>
+          }
+          </div>
+        </div>
+      </section>
+       <a style="top: 10px;
+    width: 100%;" href="@Url.Action("TurlarRu","Anasayfa")" class="cws-button border-left large alt mb-20">Посмотреть больше</a>
+      <!-- ! page section-->
+      
+     
+     
+       <!-- gallery section-->
+    <section class="small-section">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-8">
+              <h6 class="title-section-top font-4">СЧАСТЛИВЫЕ ВОСПОМИНАНИЯ</h6>
+              <h2 class="title-section"><span>ФОТО</span> ГАЛЕРЕЯ</h2>
+              <div class="cws_divider mb-25 mt-5"></div>
+              <p>Vestibulum feugiat vitae tortor ut venenatis. Sed cursus, purus eu euismod bibendum, diam nisl suscipit odio, vitae ultrices mauris dolor quis mauris. Curabitur ac metus id leo maximus porta.</p>
+            </div>
+            <div class="col-md-4"><i class="flaticon-suntour-photo title-icon"></i></div>
+          </div>
+          <div class="row portfolio-grid">
+            <!-- portfolio item-->
+              @foreach (var a in fotogaleris)
+                    {
+            <div class="col-md-6 col-sm-12 col-xs-12">            
+              <div class="portfolio-item big">
+                <!-- portfolio image--><a href="@a.galeriResim" class="fancy">
+                  <div class="portfolio-media"><img style="width:580px;height:350px;" src="@a.galeriResim" data-at2x="@a.galeriResim" alt></div></a>
+                <div class="links"><a href="@a.galeriResim" class="fancy"><i class="fa fa-expand"></i></a></div>
+              </div>
+            </div>
+            }
+          </div>
+        </div>
+      </section>
+      <!-- ! gallery section-->
+          <!-- testimonials section-->
+       @foreach (var a in anas)
+    {
+        
+   
+      <section class="small-section cws_prlx_section bg-blue-40"><img src="@a.YorumArkaResim" alt class="cws_prlx_layer">
+           
+        <div class="container">
+          <div class="row">
+            <div class="col-md-8">
+              <h6 class="title-section-top font-4">Счастливые воспоминания</h6>
+              <h2 class="title-section alt-2"><span>
+Наш</span> Отзывы</h2>
+              <div class="cws_divider mb-25 mt-5"></div>
+            </div>
+          </div>
+        
+                
+            
+          <div class="row">
+            <!-- testimonial carousel-->
+           
+            <div class="owl-three-item">
+                   @foreach (var item in yorums)
+            {
+              <!-- testimonial item-->
+              <div class="testimonial-item">
+                <div class="testimonial-top"><a href="hotels-details.html">
+                    <div class="pic"><img src="@item.resim" data-at2x="@item.resim" alt></div></a>
+                  
+                </div>
+                <!-- testimonial content-->
+                <div class="testimonial-body">
+                  <h5 class="title"><span>@item.ad</span> @item.soyad</h5>
+                  <h5 class="title">[@item.tur]</h5>
+                  <div class="stars stars-@item.puan"></div>
+                  <p class="align-center">@item.yorum</p>
+                </div>
+              </div>
+               }
+            </div>
+           
+          </div>
+        
+        </div>
+      </section>
+      }
+      <!-- ! testimonials section-->
+      <!-- page section parallax-->
+      <section  class="small-section cws_prlx_section bg-gray-40"><img src="~/pic/parra/parallax-1.jpg" alt class="cws_prlx_layer">
+        <div class="container">
+          <div id="hakkımızda" class="row">
+               @foreach (var a in hakkimizdaens)
+                    {
+                        
+            <div class="col-md-5">
+               
+                   
+              
+              <h2 class="title-section alt mb-20"><span>@a.hakkimizdabaslik</span></h2>
+              <p class="color-white">@a.hakkimizdaaciklama</p>
+               
+              <div class="cws_divider short mb-30 mt-30"></div>
+              
+            </div>
+            <div class="col-md-7">
+              <div class="embed-responsive embed-responsive-16by9">
+                <iframe src="@a.hakkimizdavideo" class="embed-responsive-item"></iframe>
+              </div>
+            </div>
+            }
+          </div>
+        </div>
+      </section>
+      <!-- ! page section parallax-->
+
+ 
+    </div>
+
+    @section Scripts {
+        <script>
+            function myFunction(){
+    var myVar = document.getElementById('tarihfunc').value;
+    $.ajax({
+                type: "POST",
+                url: "/Anasayfa/tarihRu",//controller açılacak
+                dataType: 'text',               
+                data:{ name: myVar },
+               //"[{"tarihID":5,"tarih":"2022-10-23","turID":6,"turlarTR":null}]"
+                success: function (data) {
+                    //$("#btnGondert").removeAttr("disabled");
+                         //Clear the select list    
+                            $('#date').empty();
+
+                     $.each(JSON.parse(data), function(i, tarihobj) {
+                        $('#date').append($('<option>').text(tarihobj.tarih).attr('value', tarihobj.tarih));
+                    });
+ 
+                },
+                error: function (data) {
+                    //$("#btnGondert").removeAttr("disabled");
+                }
+ 
+            });
+}  </script>
+    
+}

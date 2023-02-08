@@ -1,0 +1,45 @@
+﻿
+
+
+@model WebApplication1.Models.sınıflar.AnaGirisTR
+@{
+    ViewBag.Title = "GirisEkle";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<br />
+
+<h2>Yeni Giriş Sayfası</h2>
+
+<br />
+@using (Html.BeginForm("GirisEkle", "AnaGirisTR", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+
+    <form class="form-group" method="post">
+      
+        <br />
+        
+        @Html.LabelFor(x => x.arkaplan)
+        <input type="file"  name="fileImg"/>
+        <br />
+        @Html.LabelFor(x => x.üstsatır)
+        @Html.TextBoxFor(x => x.üstsatır, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(x => x.yer)
+        @Html.TextBoxFor(x => x.yer, new { @class = "form-control" })
+        <br />
+        @Html.LabelFor(x => x.altsatır)
+        @Html.TextBoxFor(x => x.altsatır, new { @class = "form-control" })
+      
+      
+    
+        <br />
+        <br />
+        
+        <button class="btn btn-primary">Kaydet</button>
+
+    </form>
+}
+
+
+

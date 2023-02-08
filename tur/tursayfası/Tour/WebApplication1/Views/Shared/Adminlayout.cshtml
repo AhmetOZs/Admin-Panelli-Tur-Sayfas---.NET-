@@ -1,0 +1,178 @@
+﻿
+@{
+    Layout = null;
+}
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Admin Paneli</title>
+    <link href="~/admin/dist/css/styles.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark" style="position:fixed; width:100%;">
+        <a class="navbar-brand" href="index.html">Admin Panel</a><button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" href="#">
+            <i class="fas fa-bars"></i>
+        </button><!-- Navbar Search-->
+        <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
+          
+        </form>
+        <!-- Navbar-->
+        <ul class="navbar-nav ml-auto ml-md-0">
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+                   
+                    <div class="dropdown-divider"></div>
+                    <a class="@Url.Action("Index", "Anasayfa")" href="login.html">Çıkış Yap</a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+    <div id="layoutSidenav">
+        <div id="layoutSidenav_nav"style="position:fixed; height:100%; " >
+            <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion" >
+                <div class="sb-sidenav-menu" >
+                    <div class="nav">
+                        <div class="sb-sidenav-menu-heading">İşlemler</div>
+                        <ul>İngilizce sayfa 
+                            <li>
+                        <a class="nav-link" href="/Turlar/Index">
+                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                            Turlar
+                        </a>
+                        </li>
+                 
+                        
+
+                       
+                        <li>
+                        <a class="nav-link" href="/hakkimizdaen/Index/">
+                            <div  class="sb-nav-link-icon"><i class="fas fa-street-view"></i></div>
+                            Hakkımda 
+                        </a>
+                        </li>
+                         <li>
+                        <a class="nav-link" href="/bolge/Index/">
+                            <div class="sb-nav-link-icon"><i class="fas fa-street-view"></i></div>
+                            Bölge 
+                        </a>
+                        </li>
+                        <li>
+                        <a class="nav-link" href="/AnaGirisEN/Index/">
+                            <div class="sb-nav-link-icon"><i class="fas fa-street-view"></i></div>
+                            Giriş Ekranı 
+                        </a>
+                        </li>
+                        </ul>
+                        <ul>Türkçe sayfa düzenleme
+                            <li>
+                        <a class="nav-link" href="/TurlarTR/Index">
+                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                            Turlar
+                        </a>
+                        </li>
+                      
+                        <li>
+                        <a class="nav-link" href="/hakkimizdaTR/Index/">
+                            <div class="sb-nav-link-icon"><i class="fas fa-street-view"></i></div>
+                            Hakkımda 
+                        </a>
+                        </li>
+                         <li>
+                        <a class="nav-link" href="/bolgeTR/Index/">
+                            <div class="sb-nav-link-icon"><i class="fas fa-street-view"></i></div>
+                            Bölge 
+                        </a>
+                        </li>
+                        <li>
+                        <a class="nav-link" href="/AnaGirisTR/Index/">
+                            <div class="sb-nav-link-icon"><i class="fas fa-street-view"></i></div>
+                            Giriş Ekranı 
+                        </a>
+                        </li>
+                        </ul>
+                        <ul>Rusça sayfa düzenleme
+                            <li>
+                        <a class="nav-link" href="/TurlarRU/Index">
+                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                            Turlar
+                        </a>
+                        </li>
+                      
+                        <li>
+                        <a class="nav-link" href="/hakkimizdaRU/Index/">
+                            <div class="sb-nav-link-icon"><i class="fas fa-street-view"></i></div>
+                            Hakkımda 
+                        </a>
+                        </li>
+                        <li>
+                        <a class="nav-link" href="/bolgeRU/Index/">
+                            <div class="sb-nav-link-icon"><i class="fas fa-street-view"></i></div>
+                            Bölge 
+                        </a>
+                        </li>
+                        <li>
+                        <a class="nav-link" href="/AnaGirisRU/Index/">
+                            <div class="sb-nav-link-icon"><i class="fas fa-street-view"></i></div>
+                            Giriş Ekranı 
+                        </a>
+                        </li>
+                        </ul>
+                        <ul>Genel Düzenlemeler
+
+                            <li>
+                                 <a class="nav-link" href="/Iletisim/Index/">
+                            <div class="sb-nav-link-icon"><i class="fas fa-street-view"></i></div>
+                            İletişim 
+                        </a>
+                            </li>
+                            <li>
+                        <a class="nav-link" href="/fotogaleri/Index/">
+                            <div class="sb-nav-link-icon"><i class="fas fa-street-view"></i></div>
+                            Galeri 
+                        </a>
+                        </li>
+                          <li>
+                        <a class="nav-link" href="/Yorum/Index/">
+                            <div class="sb-nav-link-icon"><i class="fas fa-street-view"></i></div>
+                            Yorum 
+                        </a>
+                        </li>
+                         <li>
+                        <a class="nav-link" href="/Ana/Index/">
+                            <div class="sb-nav-link-icon"><i class="fas fa-street-view"></i></div>
+                            Anasayfa Düzenlemeler 
+                        </a>
+                        </li>
+                        </ul>
+                        
+                 </div>
+                 </div>
+               
+            </nav>
+        </div>
+        <div id="layoutSidenav_content">
+            <main style="padding-left:250px; padding-top:50px;">
+                <div class="container-fluid">
+                  @RenderBody()
+                </div>
+            </main>
+           
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script src="~/admin/dist/js/scripts.js"></script>
+</body>
+</html>

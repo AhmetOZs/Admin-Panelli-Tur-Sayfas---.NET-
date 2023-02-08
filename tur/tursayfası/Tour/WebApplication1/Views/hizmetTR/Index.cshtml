@@ -1,0 +1,43 @@
+﻿@using WebApplication1.Models.sınıflar;
+@model List<hizmetTR>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/Adminlayout.cshtml";
+}
+
+<table class="table table-bordered" style="margin-top:20px">
+    <tr>
+      
+        <th>Hizmetin Adı</th>
+        <th>Hizmetin Açıklaması</th>
+        <th>Ücreti</th>
+       
+        
+        
+
+    </tr>
+    @foreach (var k in Model)
+    {
+
+        <tr>
+            
+           
+            <td> @k.hizmetad</td>
+            <td> @k.hizmetaciklama</td>
+            <td> @k.ucret</td>
+            
+            
+            
+            
+            
+           <td><a href="@Url.Action("HizmetSil","hizmetTR",new {id=k.hizmetID})" class="btn btn-danger">Sil</a></td>
+        <td><a href="@Url.Action("HizmetGetir","hizmetTR",new {id=k.hizmetID})" class="btn btn-success">Güncelle</a></td>
+          </tr>
+          
+    }
+</table>
+<tr>
+              <td></td>
+              <td><a href="/hizmetTR/HizmetEkle" class="btn btn-info">Hizmet Ekle</a></td>
+              
+          </tr>

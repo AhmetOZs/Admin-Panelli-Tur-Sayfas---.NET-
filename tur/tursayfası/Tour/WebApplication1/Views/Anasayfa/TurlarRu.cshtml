@@ -1,0 +1,133 @@
+﻿@using WebApplication1.Models.sınıflar
+@model List<TurlarRU>
+@{
+    ViewData["Title"] = "TurlarRU";
+    Layout = "~/Views/Shared/rufooter.cshtml";
+    List<bolgeRU> bolges = ViewBag.bolge ?? new List<bolge>();
+     List<TurTarihRU> turTarihs = ViewBag.tarih ?? new List<TurTarihRU>();
+}
+
+<div class="content-body" style="background-image:url('../pic/back/1.webp'); background-repeat:no-repeat; background-attachment:fixed;">
+      <div class="container page">
+        <div class="row">
+          <div class="search-tours-wrap">
+              <div class="search-tours-tabs">
+                <div class="search-tabs-wrap">
+                  <div data-tours-cat="tab-cat-1" class="tours-tab-btn active"><span>
+Экскурсии</span><i style="padding:10px; color:#ffc107;"  class=" flaticon-suntour-world"></i></div>
+                  </div>
+              </div>
+              <form asp-controller="Anasayfa" asp-action="TurlarRu" method="post" class="search divider-skew">
+              <div class="search-tours-content">
+                <div data-tours-cat="tab-cat-1" class="tours-container active">
+                  <div class="tours-box">
+                    <div class="tours-search">
+                      <form method="post" class="form">
+                        <div style="width:200px;" class="search-wrap">
+                          <div class="selection-box"><i class="flaticon-suntour-map box-icon"></i>
+                        <select onchange="myFunction()" name="search" id="tarihfunc"><!--onchange ve id lazım -->
+                           
+                           @foreach (var a in bolges)
+                                                    {
+                                                            
+                                                       
+                                <option>@a.bolgeismi</option>
+                                                }
+                       </select>
+                        </div>
+                      </div>
+                      </form>
+                    
+                      <div style="width:200px;" class="search-wrap">
+                          <div class="selection-box"><i class="flaticon-suntour-calendar box-icon"></i>
+                       <select  name="date" id="date">
+                           
+                           @foreach (var a in turTarihs)
+                                                    {
+                                                            
+                                                       
+                                <option  >@a.tarih</option>
+                                                }
+                       </select>
+                        </div>
+                      </div>
+                      
+                      <div class="selection-box"><i class="flaticon-suntour-adult box-icon"></i>
+                        <select name="adults" id="adults">
+                          <option>
+Человек</option>
+                          <option>6</option>
+                          <option>12</option>
+                    
+                        </select>
+                      </div>
+                      <button style="background-color:#000000; width:50px; " type="submit" class="button-search">
+Поиск</button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+            </div>
+            <br />
+            <br />
+            <br />
+           <div class="row">
+               @foreach (var a in Model)
+                {
+                    
+               
+          <!-- Recomended item-->
+          <div class="col-md-6">
+            <div class="recom-item border">
+              <div class="recom-media"><a href="@Url.Action("TurDetayRu","Anasayfa",new {id=a.turID})">
+                  <div  class="pic"><img style="width:511px;height: 350px" src="@a.girisresim" data-at2x="@a.girisresim" alt></div></a>
+                <div class="location"><i class="flaticon-suntour-map"></i> @a.sehir, Turkey</div>
+              </div>
+              <!-- Recomended Content--> 
+              <div class="recom-item-body"><a href="hotels-details.html">
+                  <h6 class="blog-title">@a.turismi</h6></a>
+                <div class="stars stars-4"></div>
+                <div class="recom-price"><span class="font-4">@a.ucret</span> 
+на человека</div>
+                <p class="mb-30"></p><a href="@Url.Action("TurDetayRu","Anasayfa",new {id=a.turID})" class="recom-button"></a><a href="@Url.Action("TurDetayRu","Anasayfa",new {id=a.turID})" class="cws-button small alt">Забронируйте сейчас</a>
+                
+              </div>
+              <!-- Recomended Image-->
+            </div>
+          </div>
+          <!-- ! Recomended item-->
+        }
+        </div>
+        </div>
+      </div>
+    
+    </div>
+                     @section Scripts {
+        <script>
+            function myFunction(){
+    var myVar = document.getElementById('tarihfunc').value;
+    $.ajax({
+                type: "POST",
+                url: "/Anasayfa/tarihRu",//controller açılacak
+                dataType: 'text',               
+                data:{ name: myVar },
+               //"[{"tarihID":5,"tarih":"2022-10-23","turID":6,"turlarTR":null}]"
+                success: function (data) {
+                    //$("#btnGondert").removeAttr("disabled");
+                         //Clear the select list    
+                            $('#date').empty();
+
+                     $.each(JSON.parse(data), function(i, tarihobj) {
+                        $('#date').append($('<option>').text(tarihobj.tarih).attr('value', tarihobj.tarih));
+                    });
+ 
+                },
+                error: function (data) {
+                    //$("#btnGondert").removeAttr("disabled");
+                }
+ 
+            });
+}  </script>
+    
+}

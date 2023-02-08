@@ -1,0 +1,31 @@
+﻿@using WebApplication1.Models.sınıflar;
+@model List<TurTarihTR>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/Adminlayout.cshtml";
+}
+
+<table class="table table-bordered" style="margin-top:20px">
+    <tr>
+        <th>Tarihler </th>
+        
+        
+
+    </tr>
+    @foreach (var k in Model)
+    {
+
+        <tr>
+            
+           
+            
+            <td> @k.tarih</td>
+           
+            
+            
+         <td><a href="@Url.Action("TarihSil","TurTarihTR",new {id=k.tarihID})" class="btn btn-danger">Sil</a></td>
+        <td><a href="@Url.Action("TarihGetir","TurTarihTR",new {id=k.tarihID})" class="btn btn-success">Güncelle</a></td>
+          </tr>
+    }
+</table>
+<a href="/TurTarihTR/TarihEkle" class="btn btn-info">Tarih Ekle</a>

@@ -1,0 +1,34 @@
+﻿@using WebApplication1.Models.sınıflar
+@model List<AnaGirisEN>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<table class="table table-bordered" style="margin-top:20px">
+    <tr>
+        <th>Arkaplan</th>
+        <th>Üst Satır</th>
+        <th>Yer</th>
+        <th>Alt Satır</th>
+        
+      
+
+    </tr>
+    @foreach (var k in Model)
+    {
+
+        <tr>
+            
+            <td> <img src="@k.arkaplan" style="width:100px; height:80px;"/></td>
+            <td> @k.üstsatır</td>
+            <td> @k.yer</td>
+            <td> @k.altsatır</td>
+            
+           
+           <td><a href="/AnaGirisEN/GirisSil/@k.ID" class="btn btn-danger">Sil</a></td>
+        <td><a href="@Url.Action("GirisGetir","AnaGirisEN",new {id=k.ID})" class="btn btn-success">Güncelle</a></td>
+          </tr>
+    }
+</table>
+<a href="/AnaGirisEN/GirisEkle" class="btn btn-info">Ekran Ekle</a>

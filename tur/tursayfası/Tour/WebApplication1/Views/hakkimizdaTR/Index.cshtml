@@ -1,0 +1,35 @@
+﻿@using WebApplication1.Models.sınıflar;
+@model List<hakkimizdaTR>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/Adminlayout.cshtml";
+}
+
+<table class="table table-bordered" style="margin-top:20px">
+    <tr>
+        <th>Hakkımızda Başlık</th>
+        <th>Hakkımızda Açıklama</th>
+        <th>Hakkımızda Video</th>
+        
+        
+        
+
+    </tr>
+    @foreach (var k in Model)
+    {
+
+        <tr>
+            
+           
+            <td> @k.hakkimizdabaslik</td>
+            <td> @k.hakkimizdaaciklama</td>
+            <td> @k.hakkimizdavideo</td>
+         
+            
+            
+        
+        <td><a href="@Url.Action("hakkimizdaGetir","hakkimizdaTR",new {id=k.hakkimizdaID})" class="btn btn-success">Güncelle</a></td>
+        
+          </tr>
+    }
+</table>

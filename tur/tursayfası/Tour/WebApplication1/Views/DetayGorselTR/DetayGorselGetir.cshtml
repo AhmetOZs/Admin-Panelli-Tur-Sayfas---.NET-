@@ -1,0 +1,27 @@
+﻿@model WebApplication1.Models.sınıflar.DetayGorselTR
+@{
+    ViewBag.Title = "DetayGorselGetir";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<br />
+<h2>Detay Resim Güncelleme Sayfası</h2>
+<br />
+
+@using (Html.BeginForm("DetayGorselGüncelle", "DetayGorselTR", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+<div class="form-group">
+    @Html.HiddenFor(x => x.DetayGorselID)
+   
+    @Html.LabelFor(x => x.DetayResim)
+    <input type="file" src="@Model.DetayResim" name="fileImg"/>
+    <br/>
+    <br/>
+    @Html.LabelFor(x => x.TurlarTR.turID)
+    @Html.DropDownListFor(x => x.turID, (List<SelectListItem>)ViewBag.dgr1, new { @class = "form-control" })
+
+   <br/>
+    
+    <button class="btn btn-default" style="background-color:yellowgreen">Güncelle</button>
+
+</div>
+}

@@ -1,0 +1,53 @@
+﻿@using WebApplication1.Models.sınıflar;
+@model List<TurlarRU>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/Adminlayout.cshtml";
+}
+
+@using(Html.BeginForm("Index","TurlarRU", FormMethod.Get))
+
+{}
+
+<table class="table table-bordered" style="margin-top:20px">
+    <tr>
+        <th>Bölge</th>
+       
+        <th>Şehir</th>
+        <th>Giriş Resim</th>
+        <th>Tur İsmi</th>
+        <th>Tur Tarihleri</th>
+        <th>Tur Ücreti</th>
+        <th>Kontejyan</th>
+        
+        
+
+    </tr>
+    @foreach (var k in Model)
+    {
+
+        <tr>
+            
+           
+           <td>@k.bolgeRU.bolgeismi</td>
+          
+            <td> @k.sehir</td>
+            <td> <img src="@k.girisresim" style="width:100px; height:80px;"/></td>
+            <td> @k.turismi</td>
+            <td><a href="@Url.Action("Index","TurTarihRU",new {id=k.turID})" class="btn btn-success">Tarihler</a></td>
+            <td>@k.ucret</td>
+            <td>@k.kontejyan</td>
+            
+            
+           <td>
+            <a href="@Url.Action("TurlarSil","TurlarRU",new {id=k.turID})" class="btn btn-danger">Sil</a>
+            <a href="@Url.Action("TurlarGetir","TurlarRU",new {id=k.turID})" class="btn btn-primary">Güncelle</a>
+        </td>
+        
+        <td><a href="@Url.Action("Index","TurDetayRU",new {id=k.turID})" class="btn btn-success">Detaylar</a></td>
+        <td><a href="@Url.Action("Index","hizmetRU",new {id=k.turID})" class="btn btn-success">Hizmetler</a></td>
+        <td><a href="@Url.Action("Index","DetayGorselRU",new {id=k.turID})" class="btn btn-success">Görseller</a></td>
+          </tr>
+    }
+</table>
+<a href="/TurlarRu/TurlarEkle" class="btn btn-info">Tur Ekle</a>

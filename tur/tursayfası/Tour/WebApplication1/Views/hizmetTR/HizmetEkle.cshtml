@@ -1,0 +1,39 @@
+﻿
+
+@model WebApplication1.Models.sınıflar.hizmetTR
+@{
+    ViewBag.Title = "ReferansEkle";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<br />
+
+<h2>Yeni Hizmet Sayfası</h2>
+
+<br />
+@using (Html.BeginForm("HizmetEkle", "hizmetTR", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+
+    <form class="form-group" method="post">
+        @Html.LabelFor(x => x.hizmetad)
+        @Html.TextBoxFor(x => x.hizmetad, new { @class = "form-control" })
+        <br />
+         @Html.LabelFor(x => x.hizmetaciklama)
+        @Html.TextBoxFor(x => x.hizmetaciklama, new { @class = "form-control" })
+        <br />
+         @Html.LabelFor(x => x.ucret)
+        @Html.TextBoxFor(x => x.ucret, new { @class = "form-control" })
+        <br />
+
+        <br />
+        @Html.LabelFor(x => x.TurlarTR.turID)
+        @Html.DropDownListFor(x => x.turID, (List<SelectListItem>)ViewBag.dgr1, new {@class="from-control"})
+        <br />
+        
+        
+        <button class="btn btn-primary">Kaydet</button>
+
+    </form>
+}
+
+

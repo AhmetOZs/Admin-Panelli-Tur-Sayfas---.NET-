@@ -1,0 +1,61 @@
+﻿@model WebApplication1.Models.sınıflar.Ana
+@{
+    ViewBag.Title = "AnaGetir";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<br />
+<h2>Ana Güncelleme Ekranı</h2>
+<br />
+@using (Html.BeginForm("AnaGüncelle", "Ana", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+<div class="form-group">
+    @Html.HiddenFor(x => x.ID)
+    
+    <br />
+    <br />
+
+    @Html.LabelFor(x => x.TurlarKucukResim)
+    <input type="file" src="@Model.TurlarKucukResim" name="fileImg"/>
+    <br/>
+    <br/>
+
+     
+    @Html.LabelFor(x => x.YorumArkaResim)
+    <input type="file" src="@Model.YorumArkaResim" name="fileImg2"/>
+    <br />
+    <br />
+
+    @Html.LabelFor(x => x.HakkimdaArkaResim)
+    <input type="file" src="@Model.HakkimdaArkaResim" name="fileImg3"/>
+    <br />
+    <br />
+    @Html.LabelFor(x => x.TurlarAcıklamaTR)
+    @Html.TextBoxFor(x => x.TurlarAcıklamaTR, new { @class = "form-control" })
+    <br />
+    <br />
+    @Html.LabelFor(x => x.TurlarAcıklamaEn)
+    @Html.TextBoxFor(x => x.TurlarAcıklamaEn, new { @class = "form-control" })
+    <br />
+    <br />
+    @Html.LabelFor(x => x.TurlarAcıklamaRU)
+    @Html.TextBoxFor(x => x.TurlarAcıklamaRU, new { @class = "form-control" })
+    <br />
+    <br />
+    @Html.LabelFor(x => x.GaleriAcıklamaTR)
+    @Html.TextBoxFor(x => x.GaleriAcıklamaTR, new { @class = "form-control" })
+    <br />
+    <br />
+    @Html.LabelFor(x => x.GaleriAcıklamaEn)
+    @Html.TextBoxFor(x => x.GaleriAcıklamaEn, new { @class = "form-control" })
+    <br />
+    <br />
+    @Html.LabelFor(x => x.GaleriAcıklamaRU)
+    @Html.TextBoxFor(x => x.GaleriAcıklamaRU, new { @class = "form-control" })
+    <br/>
+    <br/>
+    <button class="btn btn-default" style="background-color:yellowgreen">Güncelle</button>
+
+</div>
+}
+

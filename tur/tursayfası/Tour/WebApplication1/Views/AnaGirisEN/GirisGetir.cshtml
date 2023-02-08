@@ -1,0 +1,34 @@
+﻿@model WebApplication1.Models.sınıflar.AnaGirisEN
+@{
+    ViewBag.Title = "GirisGetir";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<br />
+<h2>Güncelleme Ekranı</h2>
+<br />
+@using (Html.BeginForm("GirisGüncelle", "AnaGirisEN", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+<div class="form-group">
+    @Html.HiddenFor(x => x.ID)
+   
+    @Html.LabelFor(x => x.arkaplan)
+    <input type="file" src="@Model.arkaplan" name="fileImg"/>
+    <br/>
+    <br/>
+    @Html.LabelFor(x => x.üstsatır)
+    @Html.TextBoxFor(x => x.üstsatır, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.yer)
+    @Html.TextBoxFor(x => x.yer, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.altsatır)
+    @Html.TextBoxFor(x => x.altsatır, new { @class = "form-control" })
+    <br />
+   
+    
+    <button class="btn btn-default" style="background-color:yellowgreen">Güncelle</button>
+
+</div>
+}
+

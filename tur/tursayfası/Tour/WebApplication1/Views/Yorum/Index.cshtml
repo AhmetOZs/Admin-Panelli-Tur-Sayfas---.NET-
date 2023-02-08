@@ -1,0 +1,52 @@
+﻿@using WebApplication1.Models.sınıflar;
+@model List<Yorum>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/Adminlayout.cshtml";
+}
+
+@using(Html.BeginForm("Index","Turlar", FormMethod.Get))
+
+{}
+
+<table class="table table-bordered" style="margin-top:20px">
+    <tr>
+        <th>Tur Adı</th>
+        <th>Misafir Adı</th>
+        <th>Misafir Soyadı</th>
+        <th>Misafir Yorumu</th>
+        <th>Misafir Puanı</th>
+        <th>Arka Resim</th>
+        
+        
+        
+
+    </tr>
+    @foreach (var k in Model)
+    {
+
+        <tr>
+            
+           
+           <td>@k.tur</td>
+            <td> @k.ad</td>
+            <td> @k.soyad</td>
+            <td> @k.yorum</td>
+            <td> @k.puan</td>
+           
+            <td> <img src="@k.resim" style="width:100px; height:80px;"/></td>
+            
+            
+            
+           <td>
+            <a href="@Url.Action("YorumSil","Yorum",new {id=k.YorumID})" class="btn btn-danger">Sil</a>
+            </td>
+            <td>
+            <a href="@Url.Action("YorumGetir","Yorum",new {id=k.YorumID})" class="btn btn-primary">Güncelle</a>
+           </td>
+        
+        
+          </tr>
+    }
+</table>
+<a href="/Yorum/YorumEkle" class="btn btn-info">Yorum Ekle</a>

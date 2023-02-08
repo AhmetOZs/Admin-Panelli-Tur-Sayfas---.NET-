@@ -1,0 +1,31 @@
+﻿@using WebApplication1.Models.sınıflar;
+@model List<DetayGorsel>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/Adminlayout.cshtml";
+}
+
+<table class="table table-bordered" style="margin-top:20px">
+    <tr>
+        <th>Detay Görselleri</th>
+        
+        
+
+    </tr>
+    @foreach (var k in Model)
+    {
+
+        <tr>
+            
+           
+            
+            <td> <img src="@k.DetayResim" style="width:100px; height:80px;"/></td>
+           
+            
+            
+         <td><a href="@Url.Action("DetayGorselSil","DetayGorsel",new {id=k.DetayGorselID})" class="btn btn-danger">Sil</a></td>
+        <td><a href="@Url.Action("DetayGorselGetir","DetayGorsel",new {id=k.DetayGorselID})" class="btn btn-success">Güncelle</a></td>
+          </tr>
+    }
+</table>
+<a href="/DetayGorsel/DetayGorselEkle" class="btn btn-info">Görsel Ekle</a>

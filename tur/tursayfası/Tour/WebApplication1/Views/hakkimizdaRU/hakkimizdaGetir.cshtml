@@ -1,0 +1,29 @@
+﻿
+
+@model WebApplication1.Models.sınıflar.hakkimizdaRU
+@{
+    ViewBag.Title = "hakkimizdaGetir";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<br />
+<h2>Hakkımızda Güncelleme Ekranı</h2>
+<br />
+@using (Html.BeginForm("hakkimizdaGüncelle", "hakkimizdaRU", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+<div class="form-group">
+    @Html.HiddenFor(x => x.hakkimizdaID)
+    @Html.LabelFor(x => x.hakkimizdabaslik)
+    @Html.TextBoxFor(x => x.hakkimizdabaslik, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.hakkimizdaaciklama)
+    @Html.TextBoxFor(x => x.hakkimizdaaciklama, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.hakkimizdavideo)
+    @Html.TextBoxFor(x => x.hakkimizdavideo, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-default" style="background-color:yellowgreen">Güncelle</button>
+
+</div>
+}
+

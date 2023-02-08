@@ -1,0 +1,75 @@
+﻿@using WebApplication1.Models.sınıflar
+@{
+    ViewData["Title"] = "IletisimEn";
+    Layout = "~/Views/Shared/enfooter.cshtml";
+    List<Iletisim> iletisims = ViewBag.iletisim ?? new List<Iletisim>();
+}
+    
+      <!-- ! breadcrumbs end-->
+   
+    <!-- ! header page-->
+    <!-- content-->
+     
+    <div class="content-body">
+        @foreach (var item in iletisims)
+     {
+      <div class="container page">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="contact-item">
+              <h4 class="title-section mt-30"><span class="font-bold">Contacts</span></h4>
+              <div class="cws_divider mb-25 mt-5"></div>
+             
+              <ul class="icon">
+                  
+                       
+                            
+                       
+                <li> <a href="#">@item.mail<i class="flaticon-suntour-email"></i></a></li>
+                <li> <a href="#">@item.telefoncep<i class="flaticon-suntour-phone"></i></a></li>
+                <li> <a href="#">@item.telefonsabit<i class="flaticon-suntour-phone"></i></a></li>
+                <li> <a href="#">@item.adres<i class="flaticon-suntour-map"></i></a></li>
+              </ul>
+              
+              <p class="mt-20">@item.metinen </p>
+              <div class="contact-cws-social"><a href="@item.twitter" class="cws-social fa fa-twitter"></a><a href="@item.facebook" class="cws-social fa fa-facebook"></a><a href="@item.instagram" class="cws-social fa fa-instagram"></a><a href="@item.linkedin" class="cws-social fa fa-linkedin"></a></div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="map-wrapper">
+              <iframe src="@item.konum" allowfullscreen=""></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+       }
+      <div class="element-section pattern bg-gray-3 relative pt-60 pb-100">
+        <div class="container">
+          <h4 class="title-section mb-20"><span class="font-bold">Contact us</span></h4>
+          <div class="widget-contact-form pb-0">
+            <!-- contact-form-->
+            <div class="email_server_responce"></div>
+            <form action="php/contacts-process.php" method="post" class="form contact-form alt clearfix">
+              <div class="row">
+                <div class="col-md-6 clearfix">
+                  <div class="input-container">
+                    <input type="text" name="name" value="" size="40" placeholder="Name" aria-invalid="false" aria-required="true" class="form-row form-row-first">
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="input-container">
+                    <input type="text" name="email" value="" size="40" placeholder="Email" aria-required="true" class="form-row form-row-last">
+                  </div>
+                </div>
+              </div>
+              <div class="input-container">
+                <textarea name="message" cols="40" rows="4" placeholder="Comment" aria-invalid="false" aria-required="true"></textarea>
+              </div>
+              <input type="submit" value="Submit now" class="cws-button alt">
+            </form>
+            <!-- /contact-form-->
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- ! content-->

@@ -1,0 +1,136 @@
+﻿@using WebApplication1.Models.sınıflar;
+@model List<Iletisim>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/Adminlayout.cshtml";
+}
+
+<table class="table table-bordered" style="margin-top:20px; width:100%;">
+    <tr>
+        <th>Cep Telefon</th>
+        <th>Sabit Telefon</th>
+        <th>Mail</th>
+        <th>Adres</th>
+        <th>Konum</th>
+        
+        
+        
+
+    </tr>
+    @foreach (var k in Model)
+    {
+
+        <tr>
+            
+           
+            <td> @k.telefoncep</td>
+            <td> @k.telefonsabit</td>
+            <td> @k.mail</td>
+            <td> @k.adres</td>
+            <td> @k.konum</td>
+         
+            
+            
+        
+        <td><a href="@Url.Action("IletisimGetir","Iletisim",new {id=k.iletisimID})" class="btn btn-success">Güncelle</a></td>
+        
+          </tr>
+    }
+</table>
+<br />  
+<br /> 
+<br /> 
+<table class="table table-bordered" style="margin-top:20px; width:100%;">
+    <tr>
+        <th>Facebook</th>
+        <th>Twitter</th>
+        <th>Instagram</th>
+        <th>Linkedin</th>
+        
+        
+        
+
+    </tr>
+    @foreach (var k in Model)
+    {
+
+        <tr>
+            
+           
+            <td> @k.facebook</td>
+            <td> @k.twitter</td>
+            <td> @k.instagram</td>
+            <td> @k.linkedin</td>
+         
+            
+            
+        
+        <td><a href="@Url.Action("IletisimGetir","Iletisim",new {id=k.iletisimID})" class="btn btn-success">Güncelle</a></td>
+        
+          </tr>
+    }
+</table>
+<br /> 
+<br /> 
+<br /> 
+<table class="table table-bordered" style="margin-top:20px; width:100%;">
+    <tr>
+        <th>İletişim TR Açıklama</th>
+        <th>İletişim EU Açıklama</th>
+        <th>İletişim RU Açıklama</th>
+        
+        
+        
+        
+
+    </tr>
+    @foreach (var k in Model)
+    {
+
+        <tr>
+            
+           
+            <td> @k.metintr</td>
+            <td> @k.metinen</td>
+            <td> @k.metinru</td>
+         
+            
+            
+        
+        <td><a href="@Url.Action("IletisimGetir","Iletisim",new {id=k.iletisimID})" class="btn btn-success">Güncelle</a></td>
+        
+          </tr>
+    }
+</table>
+<br /> 
+<br /> 
+<br /> 
+        <table class="table table-bordered" style="margin-top:20px">
+    <tr>
+        <th>Sayfa Alt Açıklama TR</th>
+        <th>Sayfa Alt Açıklama EN</th>
+        <th>Sayfa Alt Açıklama RU</th>
+    
+        
+        
+        
+
+    </tr>
+    @foreach (var k in Model)
+    {
+
+        <tr>
+            
+           
+            <td> @k.fotaciklamatr</td>
+            <td> @k.fotaciklamaen</td>
+            <td> @k.fotaciklamaru</td>
+         
+            
+            
+        
+        <td><a href="@Url.Action("IletisimGetir","Iletisim",new {id=k.iletisimID})" class="btn btn-success">Güncelle</a></td>
+        
+          </tr>
+    }
+</table>

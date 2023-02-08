@@ -1,0 +1,44 @@
+﻿@model WebApplication1.Models.sınıflar.Yorum
+@{
+    ViewBag.Title = "YorumGetir";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<br />
+<h2>Ana başlık Güncelleme Ekranı</h2>
+<br />
+@using (Html.BeginForm("YorumGüncelle", "Yorum", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+<div class="form-group">
+    @Html.HiddenFor(x => x.YorumID)
+   
+
+   <br/>
+    <br />
+    @Html.LabelFor(x => x.tur)
+    @Html.TextBoxFor(x => x.tur, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.ad)
+    @Html.TextBoxFor(x => x.ad, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.soyad)
+    @Html.TextBoxFor(x => x.soyad, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.yorum)
+    @Html.TextBoxFor(x => x.yorum, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.puan)
+    @Html.TextBoxFor(x => x.puan, new { @class = "form-control" })
+    <br />
+
+    @Html.LabelFor(x => x.resim)
+    <input type="file" src="@Model.resim" name="fileImg"/>
+    <br/>
+    <br/>
+    
+    
+    <button class="btn btn-default" style="background-color:yellowgreen">Güncelle</button>
+
+</div>
+}
+

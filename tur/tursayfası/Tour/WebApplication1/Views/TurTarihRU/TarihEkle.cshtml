@@ -1,0 +1,36 @@
+﻿
+
+@model WebApplication1.Models.sınıflar.TurTarihRU
+@{
+    ViewBag.Title = "ReferansEkle";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<br />
+
+<h2>Yeni Tarih Sayfası</h2>
+
+<br />
+@using (Html.BeginForm("TarihEkle", "TurTarihRU", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+
+    <form class="form-group" method="post">
+       
+       <br/>
+         @Html.LabelFor(x=>x.tarih)
+         <input placeholder="Tur Tarihi" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" name="tarih"/>
+        <br />
+
+
+        <br />
+        @Html.LabelFor(x => x.TurlarRU.turID)
+        @Html.DropDownListFor(x => x.turID, (List<SelectListItem>)ViewBag.dgr1, new {@class="from-control"})
+        <br />
+        
+        
+        <button class="btn btn-primary">Kaydet</button>
+
+    </form>
+}
+
+

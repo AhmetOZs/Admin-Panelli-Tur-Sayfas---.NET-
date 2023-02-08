@@ -1,0 +1,36 @@
+﻿
+
+@using WebApplication1.Models.sınıflar;
+@model List<fotogaleri>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/Adminlayout.cshtml";
+}
+
+<table class="table table-bordered" style="margin-top:20px">
+    <tr>
+        <th>Galeri Görselleri</th>
+        
+        
+
+    </tr>
+    @foreach (var k in Model)
+    {
+
+        <tr>
+            
+           
+            
+            <td> <img src="@k.galeriResim" style="width:100px; height:80px;"/></td>
+           
+            
+            
+         <td><a href="@Url.Action("GaleriSil","fotogaleri",new {id=k.galeriID})" class="btn btn-danger">Sil</a></td>
+         <td><a href="@Url.Action("GaleriGetir","fotogaleri",new {id=k.galeriID})" class="btn btn-success">Güncelle</a></td>
+         
+        
+          </tr>
+    }
+</table>
+<a href="/fotogaleri/GaleriEkle" class="btn btn-info">Görsel Ekle</a>
+

@@ -1,0 +1,43 @@
+﻿@model WebApplication1.Models.sınıflar.TurlarTR
+@{
+    ViewBag.Title = "TurlarGetir";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<br />
+<h2>Ana başlık Güncelleme Ekranı</h2>
+<br />
+@using (Html.BeginForm("TurlarGüncelle", "TurlarTR", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+<div class="form-group">
+    @Html.HiddenFor(x => x.turID)
+   @Html.LabelFor(x => x.bolgeTR.bolgeID)
+    @Html.DropDownListFor(x => x.bolgeID, (List<SelectListItem>)ViewBag.dgr1, new { @class = "form-control" })
+
+   <br/>
+    <br />
+   
+    @Html.LabelFor(x => x.sehir)
+    @Html.TextBoxFor(x => x.sehir, new { @class = "form-control" })
+    <br />
+
+    @Html.LabelFor(x => x.girisresim)
+    <input type="file" src="@Model.girisresim" name="fileImg"/>
+    <br/>
+    <br/>
+    @Html.LabelFor(x => x.turismi)
+    @Html.TextBoxFor(x => x.turismi, new { @class = "form-control" })
+    <br />
+    
+    @Html.LabelFor(x=>x.ucret)
+    @Html.TextBoxFor(x=>x.ucret, new {@class="form-control"})
+     <br/>
+    @Html.LabelFor(x=>x.kontejyan)
+    @Html.TextBoxFor(x=>x.kontejyan, new {@class="form-control"})
+   <br/>
+    
+    <button class="btn btn-default" style="background-color:yellowgreen">Güncelle</button>
+
+</div>
+}
+

@@ -1,0 +1,41 @@
+﻿@using WebApplication1.Models.sınıflar;
+@model List<turdetay>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/Adminlayout.cshtml";
+}
+
+<table class="table table-bordered" style="margin-top:20px">
+    <tr>
+      
+        <th>Detay Başlık</th>
+        <th>Detay Aciklama</th>
+       
+        
+        
+
+    </tr>
+    @foreach (var k in Model)
+    {
+
+        <tr>
+            
+           
+            <td> @k.detaybaslik</td>
+            <td> @k.detayaciklama</td>
+            
+            
+            
+            
+            
+           <td><a href="@Url.Action("AciklamaSil","TurDetay",new {id=k.detayID})" class="btn btn-danger">Sil</a></td>
+        <td><a href="@Url.Action("AciklamaGetir","TurDetay",new {id=k.detayID})" class="btn btn-primary">Güncelle</a></td>
+          </tr>
+          
+    }
+</table>
+<tr>
+              <td></td>
+              <td><a href="/TurDetay/AciklamaEkle" class="btn btn-info">Açıklama Ekle</a></td>
+              
+          </tr>

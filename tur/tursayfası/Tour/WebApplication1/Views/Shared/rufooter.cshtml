@@ -1,0 +1,219 @@
+﻿@using WebApplication1.Models.sınıflar
+@{
+    Layout = null;
+    List<Iletisim> iletisims = ViewBag.iletisim ?? new List<Iletisim>();
+}
+
+
+
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Antalya 55</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="~/css/reset.css">
+    <link rel="stylesheet" href="~/css/bootstrap.css">
+    <link rel="stylesheet" href="~/css/font-awesome.css">
+    <link rel="stylesheet" href="~/css/owl.carousel.css">
+    <link rel="stylesheet" href="~/css/jquery.fancybox.css">
+    <link rel="stylesheet" href="~/fonts/fi/flaticon.css">
+    <link rel="stylesheet" href="~/css/flexslider.css">
+    <link rel="stylesheet" href="~/css/main.css">
+    <link rel="stylesheet" href="~/css/indent.css">
+    <link rel="stylesheet" href="~/rs-plugin/css/settings.css">
+    <link rel="stylesheet" href="~/rs-plugin/css/layers.css">
+    <link rel="stylesheet" href="~/rs-plugin/css/navigation.css">
+    <link rel="stylesheet" href="~/tuner/css/colorpicker.css">
+    <link rel="stylesheet" href="~/tuner/css/styles.css">
+  </head>
+  <body>
+    <!-- header page-->
+    <header>
+      <!-- site top panel-->
+      <div class="site-top-panel">
+        <div class="container p-relative">
+          <div class="row">
+            <div class="col-md-6 col-sm-7">
+              <!-- lang select wrapper-->
+              <div class="top-left-wrap font-3">
+                  @foreach (var a in iletisims)
+                            {
+                                
+                           
+                <div class="mail-top"><a href="mailto:@a.mail"> <i class="flaticon-suntour-email"></i>@a.mail</a></div><span>/</span>
+                <div class="tel-top"><a href="tel:@a.telefoncep"> <i class="flaticon-suntour-phone"></i>@a.telefoncep</a></div>
+                <p>&emsp;</p>
+
+                <div  class="tel-top"><a href="tel:@a.telefonsabit"> <i class="flaticon-suntour-phone"></i> @a.telefonsabit</a></div>
+                 }
+              </div>
+              <!-- ! lang select wrapper-->
+            </div>
+            <div class="col-md-6 col-sm-5 text-right">
+              <div class="top-right-wrap">
+               
+           
+                <div class="lang-wrap dropdown">
+                  <div>
+                    <ul>
+                      <li><a href="#" class="lang-sel icl-en">Language <i class="fa fa-angle-down"></i></a>
+                        <ul>
+                         <li><a href="@Url.Action("IndexEn","Anasayfa")">English</a></li>
+                          <li> <a href="@Url.Action("IndexRu","Anasayfa")">Русский</a></li>
+                          <li> <a href="@Url.Action("Index","Anasayfa")">Türkçe</a></li>
+                          
+                        </ul>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- ! site top panel-->
+    <!-- Navigation panel-->
+      <nav class="main-nav js-stick">
+        <div class="full-wrapper relative clearfix container">
+          <!-- Logo ( * your text or image into link tag *)-->
+          <div class="nav-logo-wrap local-scroll"><a href="@Url.Action("IndexRu","Anasayfa")" class="logo"><img style="width:50px" src="~/pic/logo/logo.png" data-at2x="~/pic/logo/logo.png" alt></a></div>
+          <!-- Main Menu-->
+          <div class="inner-nav desktop-nav">
+            <ul class="clearlist">
+              <!-- Item With Sub-->
+              <li><a href="@Url.Action("IndexRu","Anasayfa")" class="mn-has-sub active">
+Главная </a>
+
+              </li>
+              <!-- End Item With Sub-->
+              <li class="slash">/</li>
+              <!-- Item With Sub-->
+              <li><a href="@Url.Action("TurlarRu","Anasayfa")" class="mn-has-sub">
+Экскурсии </a>
+               
+              </li>
+              <!-- End Item With Sub-->
+              <li class="slash">/</li>
+              <!-- Item With Sub-->
+              <li class="megamenu"><a href=" @Url.Action("IndexRu","Anasayfa")#hakkımızda" class="mn-has-sub">
+О нас </a>
+           
+              </li>
+         
+        
+              <li class="slash">/</li>
+              <!-- Item-->
+              <li><a href="@Url.Action("IletisimRu","Anasayfa")">
+Контакт</a></li>
+              <!-- End Item-->
+  
+            </ul>
+          </div>
+          <!-- End Main Menu-->
+        </div>
+      </nav>
+      <!-- End Navigation panel-->
+    </header>
+    <!-- ! header page-->
+      @RenderBody();
+
+    <!-- footer-->
+    <footer style="background-image: url('~/pic/footer/footer-bg.jpg')" class="footer footer-fixed">
+      <div class="container">
+        <div class="row pb-100 pb-md-40">
+          <!-- widget footer-->
+          <div class="col-md-6 col-sm-12 mb-sm-30">
+            <div class="logo-soc clearfix">
+              <div class="footer-logo"><a href="@Url.Action("IndexEn","Anasayfa")"><img style="width:40px;" src="~/pic/logo/logo.png" data-at2x="~/pic/logo/logo.png" alt></a></div>
+            </div>
+            @foreach (var a in iletisims)
+                    {
+                        
+                   
+            <p class="color-g2 mt-10">@a.fotaciklamaru</p>
+             
+            <!-- social-->
+            <div class="social-link dark"><a href="@a.twitter" class="cws-social fa fa-twitter"></a><a href="@a.facebook" class="cws-social fa fa-facebook"></a><a href="@a.instagram" class="cws-social fa fa-instagram"></a><a href="@a.linkedin" class="cws-social fa fa-linkedin"></a></div>
+            <!-- ! social-->
+            }
+          </div>
+          <!-- ! widget footer-->
+          <!-- widget footer-->
+          <div class="col-md-3 col-sm-6 mb-sm-30">
+            <div class="widget-footer">
+             
+              
+               
+            </div>
+          </div>
+          <!-- end widget footer-->
+          <!-- widget footer-->
+          <div class="col-md-3 col-sm-6 mb-sm-30">
+            <div class="widget-footer">
+
+                <h4 class="color-g2 mt-10">Contact Us</h4>
+             <div class="logo-soc clearfix">
+             
+               @foreach (var a in iletisims)
+                            {
+                                
+                           
+                <div class="color-g2 mt-10"><a href="mailto:@a.mail"> <i class="flaticon-suntour-email"></i>@a.mail</a></div>
+                <div class="color-g2 mt-10"><a href="tel:@a.telefoncep"> <i class="flaticon-suntour-phone"></i>@a.telefoncep</a></div>
+                <div class="color-g2 mt-10"><a href="tel:@a.telefonsabit"> <i class="flaticon-suntour-phone"></i>@a.telefonsabit</a></div>
+                 }
+            </div>
+          </div>
+          <!-- end widget footer-->
+          
+        </div>
+      </div>
+     
+      <!-- scroll top-->
+    </footer>
+    <div id="scroll-top"><i class="fa fa-angle-up"></i></div>
+    <!-- ! footer-->
+
+
+    <script src="https://www.youtube.com/player_api"></script>
+    <script type="text/javascript" src="~/js/jquery.min.js"></script>
+    <script type="text/javascript" src="~/js/jquery-ui.min.js"></script>
+    <script type="text/javascript" src="~/js/bootstrap.js"></script>
+    <script type="text/javascript" src="~/js/owl.carousel.js"></script>
+    <script type="text/javascript" src="~/js/jquery.sticky.js"></script>
+    <script type="text/javascript" src="~/js/TweenMax.min.js"></script>
+    <script type="text/javascript" src="~/js/cws_parallax.js"></script>
+    <script type="text/javascript" src="~/js/jquery.fancybox.pack.js"></script>
+    <script type="text/javascript" src="~/js/jquery.fancybox-media.js"></script>
+    <script type="text/javascript" src="~/js/isotope.pkgd.min.js"></script>
+    <script type="text/javascript" src="~/js/imagesloaded.pkgd.min.js"></script>
+    <script type="text/javascript" src="~/js/masonry.pkgd.min.js"></script>
+    <script type="text/javascript" src="~/rs-plugin/js/jquery.themepunch.tools.min.js"></script>
+    <script type="text/javascript" src="~/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
+    <script type="text/javascript" src="~/rs-plugin/js/extensions/revolution.extension.slideanims.min.js"></script>
+    <script type="text/javascript" src="~/rs-plugin/js/extensions/revolution.extension.layeranimation.min.js"></script>
+    <script type="text/javascript" src="~/rs-plugin/js/extensions/revolution.extension.navigation.min.js"></script>
+    <script type="text/javascript" src="~/rs-plugin/js/extensions/revolution.extension.parallax.min.js"></script>
+    <script type="text/javascript" src="~/rs-plugin/js/extensions/revolution.extension.video.min.js"></script>
+    <script type="text/javascript" src="~/rs-plugin/js/extensions/revolution.extension.actions.min.js"></script>
+    <script type="text/javascript" src="~/rs-plugin/js/extensions/revolution.extension.kenburn.min.js"></script>
+    <script type="text/javascript" src="~/rs-plugin/js/extensions/revolution.extension.migration.min.js"></script>
+    <script type="text/javascript" src="~/js/jquery.validate.min.js"></script>
+    <script type="text/javascript" src="~/js/jquery.form.min.js"></script>
+    <script type="text/javascript" src="~/js/script.js"></script>
+    <script type="text/javascript" src="~/js/bg-video/cws_self_vimeo_bg.js"></script>
+    <script type="text/javascript" src="~/js/bg-video/jquery.vimeo.api.min.js"></script>
+    <script type="text/javascript" src="~/js/bg-video/cws_YT_bg.js"></script>
+    <script type="text/javascript" src="~/js/jquery.tweet.js"></script>
+    <script type="text/javascript" src="~/js/jquery.scrollTo.min.js"></script>
+    <script type="text/javascript" src="~/js/jquery.flexslider.js"></script>
+    <script type="text/javascript" src="~/tuner/js/colorpicker.js"></script>
+    <script type="text/javascript" src="~/tuner/js/scripts.js"></script>
+    <script type="text/javascript" src="~/js/retina.min.js"></script>
+    @RenderSection("Scripts", required: false)
+  </body>
+ 
+</html>

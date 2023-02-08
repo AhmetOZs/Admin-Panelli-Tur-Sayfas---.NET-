@@ -1,0 +1,74 @@
+﻿@using WebApplication1.Models.sınıflar;
+@model List<Ana>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/Adminlayout.cshtml";
+}
+
+<table class="table table-bordered" style="margin-top:20px; width:100%;">
+    <tr>
+        <th>Turlar Küçük Resim</th>
+        <th>Yorum Arka Resim</th>
+        <th>Hakkımda Arka Resim</th>
+        
+        
+        
+        
+
+    </tr>
+    @foreach (var k in Model)
+    {
+
+        <tr>
+            
+           
+            <td> <img src="@k.TurlarKucukResim" style="width:100px; height:80px;"/></td>
+            <td> <img src="@k.YorumArkaResim" style="width:100px; height:80px;"/></td>
+            <td> <img src="@k.HakkimdaArkaResim" style="width:100px; height:80px;"/></td>
+           
+         
+            
+            
+        
+        <td><a href="@Url.Action("AnaGetir","Ana",new {id=k.ID})" class="btn btn-success">Güncelle</a></td>
+        
+          </tr>
+    }
+</table>
+<br />  
+<br /> 
+<br /> 
+<table class="table table-bordered" style="margin-top:20px; width:100%;">
+    <tr>
+        <th>Turlar Açıklama TR</th>
+        <th>Turlar Açıklama EN</th>
+        <th>Turlar Açıklama RU</th>
+        <th>Galeri Açıklama TR</th>
+        <th>Galeri Açıklama EN</th>
+        <th>Galeri Açıklama RU</th>
+        
+        
+        
+
+    </tr>
+    @foreach (var k in Model)
+    {
+
+        <tr>
+            
+           
+            <td> @k.TurlarAcıklamaTR</td>
+            <td> @k.TurlarAcıklamaEn</td>
+            <td> @k.TurlarAcıklamaRU</td>
+            <td> @k.GaleriAcıklamaTR</td>
+            <td> @k.GaleriAcıklamaEn</td>
+            <td> @k.GaleriAcıklamaRU</td>
+        
+            
+            
+        
+        <td><a href="@Url.Action("AnaGetir","Ana",new {id=k.ID})" class="btn btn-success">Güncelle</a></td>
+        
+          </tr>
+    }
+</table>

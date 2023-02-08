@@ -1,0 +1,175 @@
+﻿@using WebApplication1.Models.sınıflar
+@model List<TurlarTR>
+@{
+    ViewData["Title"] = "TurDetayEn";
+    Layout = "~/Views/Shared/enfooter.cshtml";
+    List<turdetayTR> turdetays = ViewBag.detay ?? new List<turdetayTR>();
+    List<DetayGorselTR> detayGorsels = ViewBag.gorsel ?? new List<DetayGorselTR>();
+    List<hizmetTR> hizmets = ViewBag.hizmet ?? new List<hizmetTR>();
+    List<TurTarihTR> tarih = ViewBag.tarih ?? new List<TurTarihTR>();
+    
+    TurlarTR turlar = ViewBag.turlar ?? new TurlarTR();
+    List<Iletisim> iletisims = ViewBag.iletisim ?? new List<Iletisim>();
+    
+    
+    
+}
+
+
+
+ <div class="content-body">
+      <section class="page-section pt-0 pb-50">
+        <div class="container">
+          <div class="menu-widget with-switch mt-30 mb-30">
+            <ul class="magic-line">
+              <li class="current_item"><a href="#overview" class="scrollto">Detaylar</a></li>
+              
+            </ul>
+          </div>
+        </div>
+        <div class="container">
+          <div id="flex-slider" class="flexslider">
+            <ul class="slides">
+                @foreach (var a in detayGorsels)
+                    {
+                        
+                    
+              <li><img style="max-height:540px; max-width:960px;  margin:auto" src="@a.DetayResim" ></li>
+             }
+            </ul>
+          </div>
+          <div id="flex-carousel" class="flexslider">
+            <ul class="slides">
+                @foreach (var a in detayGorsels)
+                    {
+                        
+                  
+              <li><img style="width:162px; height:112px;" src="@a.DetayResim" data-at2x="~/pic/flexslider/1@2x.jpg" ></li>
+                }
+            </ul>
+          </div>
+        </div>
+        <div class="container mt-30">
+          <h3 class="mb-20">@turlar.turismi</h3>
+          <div class="row">
+            <div class="col-md-8">
+                @foreach (var a in turdetays)
+
+               {
+                   
+               
+                <h5 style="color: #000;"><span>@a.detaybaslik</span></h5>
+              <p class="mb-15">@a.detayaciklama </p>
+               }
+              
+            </div>
+            <div class="col-md-4">
+              <div class="bg-gray-3 p-30-40">
+                <ul  class="style-1 mb-0">
+                  @foreach (var a in tarih.Take(10))
+                            {
+                                
+                            
+                  <li >@DateTime.Parse(@a.tarih).ToString("dd/MM/yyyy")</li>
+                  }
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- section prices-->
+        <div id="prices" class="container mb-50 mt-40">
+         <form asp-controller="Anasayfa" asp-action="TurDetay" method="post" class="search divider-skew">
+          <div class="search-hotels room-search pattern">
+            <div class="search-room-title">
+              <h5>Tur Tarihi Seç</h5>
+            </div>
+            <div class="tours-container">
+              <div class="tours-box">
+                <div class="tours-search mb-20">
+              
+                  <div class="tours-calendar divider-skew"> 
+                   <input placeholder="Tur Tarihi" name="date" id="date" type="text" onfocus="(this.type='date')" onblur="(this.type='text')" class="calendar-default textbox-n"><i class="flaticon-suntour-calendar calendar-icon"></i>
+                  </div>
+               
+                   <div class="selection-box"><i class="flaticon-suntour-adult box-icon"></i>
+                        <select name="adults" id="adults">
+                          <option>Kişi</option>
+                          <option>6</option>
+                          <option>12</option>
+                    
+                        </select>
+                      </div>
+                 
+                  <button style="background-color:#ffc107;  " type="submit" class="button-search">Ara</button>
+                </div>
+              </div>
+            </div>
+          </div>
+          </form>
+          <div class="room-table">
+            <table class="table alt-2">
+              <thead>
+                <tr>
+                  <th>TTur adı</th>
+                  <th>Kontejyan</th>
+                  <th>Ek Seçenekler</th>
+                  <th>Ucret</th>
+                  
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td> <img style="max-width:200px;" src="@turlar.girisresim" data-at2x="@turlar.girisresim" alt>
+                    <h6>@turlar.turismi</h6>
+                   
+                  </td>
+                  <td> 
+                    <div class="table-icon"><i class="flaticon-people"></i><i class="flaticon-people"></i><i class="flaticon-people"></i><i class="flaticon-people"></i><i class="flaticon-people"></i></div>
+                    <p>@turlar.kontejyan person</p>
+                  </td>
+                  <td> 
+                    <ul class="style-1">
+                        @foreach (var a in hizmets)
+                            {
+                      <li><h6>@a.hizmetad :</h6> <br>@a.hizmetaciklama (+@a.ucret)</li>
+                            }
+                    </ul>
+                  </td>
+                  <td class="room-price">@turlar.ucret</td>
+                  
+                </tr>
+            
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <!-- section location-->
+        @foreach (var a in iletisims)
+        {
+            
+        
+        <div id="location" class="container mb-50">
+          <div class="row">
+            <div class="col-md-12">
+              <h4 class="trans-uppercase mb-10">Konum</h4>
+              <div class="cws_divider mb-30"></div>
+              <!-- google map-->
+              <div class="map-wrapper">
+                <iframe src="@a.konum" allowfullscreen=""></iframe>
+              </div>
+              <ul class="icon inline mt-20">
+                <li> <a href="#">@a.adres<i class="flaticon-suntour-map"></i></a></li>
+                <li> <a href="#">@a.telefoncep<i class="flaticon-suntour-phone"></i></a></li>
+                <li> <a href="#">@a.telefonsabit<i class="flaticon-suntour-phone"></i></a></li>
+                <li> <a href="#">@a.mail<i class="flaticon-suntour-email"></i></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        }
+
+      </section>
+    </div>
+
+

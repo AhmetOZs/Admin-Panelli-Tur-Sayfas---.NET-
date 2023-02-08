@@ -1,0 +1,33 @@
+﻿
+
+
+@model WebApplication1.Models.sınıflar.DetayGorsel
+@{
+    ViewBag.Title = "Görsel Ekle";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<br />
+
+<h2>Yeni Hizmet Sayfası</h2>
+
+<br />
+@using (Html.BeginForm("DetayGorselEkle", "DetayGorsel", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+
+    <form class="form-group" method="post">
+    
+        
+        @Html.LabelFor(x => x.DetayResim)
+        <input type="file"  name="fileImg"/>
+        <br />
+        <br />
+        @Html.LabelFor(x => x.Turlar.turID)
+        @Html.DropDownListFor(x => x.turID, (List<SelectListItem>)ViewBag.dgr1, new {@class="from-control"})
+        <br />
+        
+        
+        <button class="btn btn-primary">Kaydet</button>
+
+    </form>
+}

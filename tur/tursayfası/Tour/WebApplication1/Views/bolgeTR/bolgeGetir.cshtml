@@ -1,0 +1,22 @@
+﻿
+@model WebApplication1.Models.sınıflar.bolgeTR
+@{
+    ViewBag.Title = "bolgeGetir";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<br />
+
+<h2>Bölge Güncelleme</h2>
+<br />
+@using (Html.BeginForm("bolgeGüncelle", "bolgeTR", FormMethod.Post))
+{
+    <div class="form-group">
+        @Html.LabelFor(x=>x.bolgeismi)
+        @Html.TextBoxFor(x=>x.bolgeismi, new { @class = "form-control" })
+        @Html.HiddenFor(x=>x.bolgeismi)
+    </div>
+
+    <button class="btn btn-warning ">Güncelle</button>
+}
+
+

@@ -1,0 +1,28 @@
+﻿@model WebApplication1.Models.sınıflar.turdetayRU
+@{
+    ViewBag.Title = "AciklamaGetir";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<br />
+<h2>Açıklama Güncelleme Ekranı</h2>
+<br />
+@using (Html.BeginForm("AciklamaGüncelle", "TurDetayRU", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+<div class="form-group">
+    @Html.HiddenFor(x => x.detayID)
+    @Html.LabelFor(x => x.detaybaslik)
+    @Html.TextBoxFor(x => x.detaybaslik, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.detayaciklama)
+    @Html.TextBoxFor(x => x.detayaciklama, new { @class = "form-control" })
+    <br />
+    
+
+   
+    
+    <button class="btn btn-default" style="background-color:yellowgreen">Güncelle</button>
+
+</div>
+}
+

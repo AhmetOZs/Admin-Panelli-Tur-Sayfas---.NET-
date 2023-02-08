@@ -1,0 +1,66 @@
+﻿
+
+@model WebApplication1.Models.sınıflar.Iletisim
+@{
+    ViewBag.Title = "IletisimGetir";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<br />
+<h2>İletişim Güncelleme Ekranı</h2>
+<br />
+@using (Html.BeginForm("IletisimGüncelle", "Iletisim", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+<div class="form-group">
+    @Html.HiddenFor(x => x.iletisimID)
+    @Html.LabelFor(x => x.telefonsabit)
+    @Html.TextBoxFor(x => x.telefonsabit, new { @class = "form-control" })
+    <br />
+     @Html.LabelFor(x => x.telefoncep)
+    @Html.TextBoxFor(x => x.telefoncep, new { @class = "form-control" })
+    <br />
+     @Html.LabelFor(x => x.mail)
+    @Html.TextBoxFor(x => x.mail, new { @class = "form-control" })
+    <br />
+     @Html.LabelFor(x => x.adres)
+    @Html.TextBoxFor(x => x.adres, new { @class = "form-control" })
+    <br />
+     @Html.LabelFor(x => x.konum)
+    @Html.TextBoxFor(x => x.konum, new { @class = "form-control" })
+    <br />
+
+    @Html.LabelFor(x => x.facebook)
+    @Html.TextBoxFor(x => x.facebook, new { @class = "form-control" })
+    <br />
+    @Html.LabelFor(x => x.twitter)
+    @Html.TextBoxFor(x => x.twitter, new { @class = "form-control" })
+    <br />
+     @Html.LabelFor(x => x.instagram)
+    @Html.TextBoxFor(x => x.instagram, new { @class = "form-control" })
+    <br />
+     @Html.LabelFor(x => x.linkedin)
+    @Html.TextBoxFor(x => x.linkedin, new { @class = "form-control" })
+    <br />
+     @Html.LabelFor(x => x.metintr)
+    @Html.TextBoxFor(x => x.metintr, new { @class = "form-control" })
+    <br />
+     @Html.LabelFor(x => x.metinen)
+    @Html.TextBoxFor(x => x.metinen, new { @class = "form-control" })
+    <br />
+     @Html.LabelFor(x => x.metinru)
+    @Html.TextBoxFor(x => x.metinru, new { @class = "form-control" })
+    <br />
+     @Html.LabelFor(x => x.fotaciklamatr)
+    @Html.TextBoxFor(x => x.fotaciklamatr, new { @class = "form-control" })
+    <br />
+     @Html.LabelFor(x => x.fotaciklamaen)
+    @Html.TextBoxFor(x => x.fotaciklamaen, new { @class = "form-control" })
+    <br />
+     @Html.LabelFor(x => x.fotaciklamaru)
+    @Html.TextBoxFor(x => x.fotaciklamaru, new { @class = "form-control" })
+    <br />
+    <button class="btn btn-default" style="background-color:yellowgreen">Güncelle</button>
+
+</div>
+}
+

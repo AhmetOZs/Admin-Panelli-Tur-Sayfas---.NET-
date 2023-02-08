@@ -1,0 +1,22 @@
+﻿
+@model WebApplication1.Models.sınıflar.bolge
+@{
+    ViewBag.Title = "bolgeEkle";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<script src="~/Scripts/jquery-3.6.0.js"></script>
+<br />
+<h2>Yeni Bolge Sayfası</h2>
+<br />
+<form class="form-group" method="post">
+     @Html.LabelFor(x => x.bolgeismi)
+     @Html.TextBoxFor(x => x.bolgeismi, new {@class= "form-control"})
+    <br />
+    <button class="btn btn-info" id="Btn1">Kaydet</button>
+    <script>
+        $('#Btn1').click(function () {
+            alert("Bolge Eklendi")
+        });
+    </script>
+</form>
+
